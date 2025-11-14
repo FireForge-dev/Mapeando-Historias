@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/jwk8yfi.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Mapeando Histórias | Home</title>
+    <link rel="icon" href="./img/icon_logo.png" type="image/x-icon" />
+  </head>
+  <body class="body_home">
+    <header>
+      <div class="navbar">
+        <a href="./index.html" class="link-navbar">
+        <div class="logo-navbar">
+          <img src="./img/icon_logo.png" alt="" />
+          <h1>Mapeando<br />Histórias</h1>
+        </div>
+        </a>
+        <div class="div-navbar-mobile">
+        <ul class="btn-navbar">
+          <li><a href="./index.html" class="btn">Home</a></li>
+          <li><a href="./sobre.html" class="btn">Sobre</a></li>
+        </ul>
+
+        <ul class="btn-navbar">
+          <li><a href="./login.html" class="btn" id="login">Login</a></li>
+          <li>
+            <a href="./register.html" class="btn" id="register">Registre-se</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-home">
+      <section class="desc-container">
+        <h2>
+          Sejam bem-vindos ao Mapeando Histórias!<br />Compartilhe suas
+          histórias com o mundo!
+        </h2>
+        <p>
+          Mapeando histórias é um site onde você pode armazenar as histórias de
+          pessoas queridas pra você, podendo passar de geração em geração
+          aquelas palavras que um dia fez você rir e ficar encantado, e se
+          quiser pode mostrar para todo o mundo aquele momento que foi tão
+          importante pra você!
+        </p>
+      </section>
+      <div class="mapa-conteudo">
+        <img
+          src="./img/mapa_claro.png"
+          alt="Exemplo do mapa"
+          id="mapa-imagem"
+        />
+        <button>
+          <a href="./mapa.html" class="mapa-btn">Veja o mapa completo!</a>
+        </button>
+      </div>
+    </main>
+    <footer>
+      <section class="rodape-container">
+        <div class="logo-footer">
+          <img src="img/logo.png" alt="Logo" />
+          <h3>&copy; 2025. Todos os direitos reservados.</h3>
+        </div>
+        <div class="rodape"></div>
+      </section>
+    </footer>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = 'https://jgrbsfbttrcbtfdyzrnr.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpncmJzZmJ0dHJjYnRmZHl6cm5yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNzE1NDIsImV4cCI6MjA3ODY0NzU0Mn0.iUQvPg4n79mwiUPR0I4-VbV9S5vgVHe9F9JWnrrokpo';
+
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  
+  console.log("Supabase conectado!");
+</script>
+  </body>
+</html>
