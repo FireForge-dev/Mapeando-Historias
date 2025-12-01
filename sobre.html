@@ -1,251 +1,226 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/jwk8yfi.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com/" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Mapeando Histórias | Home</title>
-    <link rel="icon" href="./img/icon_logo.png" type="image/x-icon" />
-  </head>
+<html>
+  <body lang="pt-br">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="https://use.typekit.net/jwk8yfi.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com/" />
+      <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+      <title>Mapeando Histórias | Sobre</title>
+      <link rel="icon" href="./img/icon_logo.png" type="image/x-icon" />
+    </head>
 
-<header>
-    <div class="navbar">
+    <header>
+      <div class="navbar navbar-sobre">
         <a href="./index.html" class="link-navbar">
-        <div class="logo-navbar">
-            <img src="./img/icon_logo.png" alt="">
-            <h1>Mapeando<br>Histórias</h1>
-        </div>
+          <div class="logo-navbar">
+            <img src="./img/icon_logo.png" alt="logo" />
+            <h1 class="map">Mapeando<br />Histórias</h1>
+          </div>
         </a>
-        <ul class="btn-navbar">
-            <li><a href="./index.html" class="btn">Home</a></li>
-            <li><a href="#sobre" class="btn">Sobre</a></li>
-            <li><a href="#equipe" class="btn">Equipe</a></li>
-            <li><a href="#contato" class="btn">Contato</a></li>
+        <ul class="btn-navbar btn-navbar-sobre">
+          <li><a href="./index.html" class="btn btn-sobre">Home</a></li>
+          <li><a href="#sobre" class="btn btn-sobre">Missão</a></li>
+          <li><a href="#equipe" class="btn btn-sobre">Equipe</a></li>
+          <li><a href="#contato" class="btn btn-sobre">Contato</a></li>
         </ul>
-    </div>
+      </div>
 
-        <label class="switch">
-            <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
-            <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
-            <input onclick="test()" type="checkbox" class="input">
-            <span class="slider"></span>
-       </label>
-</header>
-
-
+      <label class="switch">
+        <span class="sun"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g fill="#ffd43b">
+              <circle r="5" cy="12" cx="12"></circle>
+              <path
+                d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"
+              ></path>
+            </g></svg></span>
+        <span class="moon"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path
+              d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"
+            ></path></svg></span>
+        <input onclick="thema()" type="checkbox" class="input" />
+        <span class="slider"></span>
+      </label>
+    </header>
 
     <main>
+      <div class="subir" href="topo">
+        <a href="#topo" class="subir" style="font-size: 36px">↑</a>
+      </div>
 
-        <div class="subir" href="topo">
-            <a href="#topo" class="subir" style="font-size: 36px;">↑</a>
+      <section class="topo-container" id="topo">
+        <div class="topo">
+          <h1>Mapeando Histórias</h1>
+          <div class="map-h2">
+            <h2 class="h2-mapeando">
+              Acreditamos no poder das narrativas para unir, inspirar e
+              transformar.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="sobre-container" id="sobre">
+        <div class="sobre-conteudo">
+          <div class="missao box-sobre">
+            <h2 class="h2-sobre">Nossa Missão</h2>
+            <p>
+              Nossa missão é inspirar e transformar vidas através de soluções
+              inovadoras, sempre priorizando a sustentabilidade e o impacto
+              positivo na comunidade.
+            </p>
+          </div>
+
+          <div class="historia box-sobre">
+            <h2 class="h2-sobre">Nossa História</h2>
+            <p>
+              Desde o início, nossa trajetória é marcada pela dedicação,
+              criatividade e compromisso em entregar o melhor para nossos
+              clientes e parceiros.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="equipe-container" id="equipe">
+        <div class="equipe-conteudo">
+          <div class="box-equipe">
+            <img
+              class="imagem"
+              src="./fotos/rafaFoto.jpg"
+              alt="Foto do Rafael"
+            />
+            <h2 class="h2-equipe">Rafael Oliveira</h2>
+            <p>
+              Product Owner <br /><br />
+              FrontEnd e BackEnd
+            </p>
+          </div>
+
+          <div class="box-equipe">
+            <img
+              class="imagem"
+              src="./fotos/lucasFoto.jpeg"
+              alt="Foto do Lucas"
+            />
+            <h2 class="h2-equipe">Lucas Britto</h2>
+            <p>FrontEnd</p>
+          </div>
+
+          <div class="box-equipe">
+            <img class="imagem" src="./fotos/anaFoto.jpg" alt="Foto da Ana" />
+            <h2 class="h2-equipe">Ana Clara</h2>
+            <p>Desgner Gráfico</p>
+          </div>
+
+          <div class="box-equipe">
+            <img
+              class="imagem"
+              src="./fotos/giovanaFoto.jpg"
+              alt="Foto da Giovanna"
+            />
+            <h2 class="h2-equipe">Giovanna Vasconcellos</h2>
+            <p>Desgner Gráfio</p>
+          </div>
+
+          <div class="box-equipe">
+            <img
+              class="imagem"
+              src="./fotos/matheusFoto.jpg"
+              alt="Foto do Matheus"
+            />
+            <h2 class="h2-equipe">Matheus Santos</h2>
+            <p></p>
+          </div>
+
+          <div class="box-equipe">
+            <img
+              class="imagem"
+              src="./fotos/thaiFoto.jpg"
+              alt="Foto da Thaina"
+            />
+            <h2 class="h2-equipe">Thaina Torres</h2>
+            <p></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contato-container" id="contato">
+        <div class="contato">
+          <div class="info-blocos">
+            <div class="bloco">
+              <a
+                href="https://instagram.com/seuusuario"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
+                  alt="Instagram"
+                  class="icon"
+                />
+                Instagram
+              </a>
+            </div>
+            <div class="bloco">
+              <a
+                href="https://github.com/seuusuario"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                  alt="GitHub"
+                  class="icon"
+                />
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <form class="form-contato" id="formContato">
+            <input type="text" id="telefone" placeholder="Telefone" required />
+            <input type="email" id="email" placeholder="E-Mail" required />
+            <input type="text" id="assunto" placeholder="Assunto" required />
+            <textarea
+              id="mensagem"
+              placeholder="Mensagem"
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit" style="color: black">Enviar</button>
+          </form>
         </div>
 
-        <section class="topo-container" id="topo">
-            <div class="topo">
-                <h1>Mapeando Histórias</h1>
-                    <div class="map-h2">
-                        <h2 class="h2-mapreando"> Acreditamos no poder das narrativas para unir, inspirar e transformar. </h2>
-                  </div>
-            </div>
-        </section>
-
-        <section class="sobre-container" id="sobre">
-            <div class="sobre-conteudo">
-
-                <div class="missao box-sobre">
-                <h2 class="h2-sobre">Nossa Missão</h2>
-                <p>
-                    Nossa missão é inspirar e transformar vidas através de soluções inovadoras, 
-                    sempre priorizando a sustentabilidade e o impacto positivo na comunidade.
-                </p>
-                </div>
-
-                <div class="historia box-sobre">
-                <h2 class="h2-sobre">Nossa História</h2>
-                <p>
-                    Desde o início, nossa trajetória é marcada pela dedicação, 
-                    criatividade e compromisso em entregar o melhor para nossos clientes e parceiros.
-                </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="equipe-container" id="equipe">
-            <div class="equipe-conteudo">
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/rafaFoto.jpg" alt="Foto do Rafael">
-                <h2 class="h2-equipe">Rafael Oliveira</h2>
-                <p></p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/lucasFoto.jpeg" alt="Foto do Lucas">
-                <h2 class="h2-equipe">Lucas Britto</h2>
-                <p></p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/anaFoto.jpg" alt="Foto da Ana">
-                <h2 class="h2-equipe">Ana Clara</h2>
-                <p></p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/giovanaFoto.jpg" alt="Foto da Giovanna">
-                <h2 class="h2-equipe">Giovanna Vasconcellos</h2>
-                <p></p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/matheusFoto.jpg" alt="Foto do Matheus">
-                <h2 class="h2-equipe">Matheus Santos</h2>
-                <p></p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="" alt="Foto do Christian">
-                <h2 class="h2-equipe">Christian Jesus</h2>
-                <p></p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/moniqueFoto.jpg" alt="Foto da Monique">
-                <h2 class="h2-equipe">Monique Passos</h2>
-                <p>.</p>
-                </div>
-
-                <div class="box-equipe" >
-                <img class="imagem" src="./fotos/thaiFoto.jpg" alt="Foto da Thaina">
-                <h2 class="h2-equipe">Thaina Torres</h2>
-                <p></p>
-                </div>
-
-            </div>
-            </section>
-
-            <section class="contato-container" id="contato">
-                <div class="contato">
-                    <div class="info-blocos">
-                    <div class="bloco">
-                        <a href="https://instagram.com/seuusuario" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="icon" />
-                        Instagram
-                        </a>
-                    </div>
-                    <div class="bloco">
-                        <a href="https://github.com/seuusuario" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="icon" />
-                        GitHub
-                        </a>
-                    </div>
-                    </div>
-
-                        <form class="form-contato" id="formContato">
-                        <input type="text" id="telefone" placeholder="Telefone" required />
-                        <input type="email" id="email" placeholder="E-Mail" required />
-                        <input type="text" id="assunto" placeholder="Assunto" required />
-                        <textarea id="mensagem" placeholder="Mensagem" rows="5" required></textarea>
-                        <button type="submit" style="color: black;">Enviar</button>
-                        </form>
-                    </div>
-
-                <div class="call-to-action">
-                    <p>Agora que já conhece nossa história, que tal contar a sua?</p>
-                    <button>Comece a mapear</button>
-                </div>
-            </section>
-
+        <div class="call-to-action">
+          <p>Agora que já conhece nossa história, que tal contar a sua?</p>
+          <button><a href="register.html">Comece a mapear</a></button>
+        </div>
+      </section>
     </main>
 
-        <footer>
+    <footer>
+      <section class="rodape-container">
+        <div class="logo-footer">
+          <img src="./img/icon_logo.png" alt="" />
+          <h3>&copy; 2025. Todos os direitos reservados.</h3>
+        </div>
+        <div class="rodape"></div>
+      </section>
+    </footer>
+  </body>
 
-            <section class="rodape-container">
-                <div class="logo-footer">
-                    <img src="img/logo.png" alt="Logo">
-                    <h3>&copy; 2025. Todos os direitos reservados.</h3>
-                </div>
-                <div class="rodape">
-                </div>
-            </section>
-
-        </footer>
-    
-</body>
-
-<script>
-
-    document.getElementById('formContato').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-
-    const telefone = document.getElementById('telefone').value.trim();
-    const email = document.getElementById('email').value.trim();
-
-    const telefoneValido = /^\d+$/.test(telefone);
-
-    const emailValido = email.includes('@');
-
-    if (!telefoneValido) {
-        alert('Por favor, insira um telefone válido, somente números.');
-        return;
-    }
-
-    if (!emailValido) {
-        alert('Por favor, insira um email válido contendo "@"');
-        return;
-    }
-
-    alert('Formulário enviado com sucesso!');
-
-    this.reset();
-    });
-
-
-// trocar para tema escuro
-
-let tick = 0;
-
-const root = document.documentElement;
-
-const fundoEscuro = getComputedStyle(root).getPropertyValue('--fundo-escuro');
-const fundoClaro = getComputedStyle(root).getPropertyValue('--fundo-claro');
-const footerEscuro = getComputedStyle(root).getPropertyValue('--footer-escuro');
-const footerClaro = getComputedStyle(root).getPropertyValue('--footer-claro');
-const navEscuro = getComputedStyle(root).getPropertyValue('--nav-escuro');
-const navClaro = getComputedStyle(root).getPropertyValue('--nav-claro');
-const fundoBlocoEscuro = getComputedStyle(root).getPropertyValue('--fundo-bloco-escuro');
-const fundoBlocoClaro = getComputedStyle(root).getPropertyValue('--fundo-bloco-claro');
-const letraEscuro = getComputedStyle(root).getPropertyValue('--letras-escuras');
-const letraClaro = getComputedStyle(root).getPropertyValue('--letras-claras');
-
-function test() {
-    if (tick <= 0) {
-        root.style.setProperty('--fundo', fundoEscuro);
-        root.style.setProperty('--footer', footerEscuro);
-        root.style.setProperty('--nav', navEscuro);
-        root.style.setProperty('--fundo-bloco', fundoBlocoEscuro);
-        root.style.setProperty('--letraE', letraClaro);
-
-        tick++;
-    } else {
-
-        root.style.setProperty('--fundo', fundoClaro);
-        root.style.setProperty('--footer', footerClaro);
-        root.style.setProperty('--nav', navClaro);
-        root.style.setProperty('--fundo-bloco', fundoBlocoClaro);
-        root.style.setProperty('--letraE', letraEscuro);
-
-        tick--;
-    }
-}
-
-</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="script.js"></script>
 </html>

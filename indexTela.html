@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapeando Histórias | Mapa</title>
+    <link rel="icon" href="./img/icon_logo.png" type="image/x-icon" />
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styleTela.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- BARRA LATERAL -->
+      <aside class="barra-lateral" id="barra-lateral">
+        <div class="cabecalho-lateral">
+          <div class="foto-usuario" aria-hidden="true"></div>
+          <h3 class="nome-usuario">Rafael Oliveira</h3>
+          <p class="mensagem-boasvindas">Bem-vindo ao seu mapa!</p>
+        </div>
+
+        <div class="plano-usuario">
+          <span>Plano atual:</span>
+          <strong id="plano-atual">Free</strong>
+        </div>
+
+        <nav class="menu-lateral" aria-label="Menu lateral">
+          <h4>📍 Seus marcadores</h4>
+          <ul id="lista-marcadores" class="lista-marcadores"></ul>
+
+          <h4>⭐ Favoritos</h4>
+          <ul id="lista-favoritos" class="lista-favoritos">
+            <li>Nenhum favorito ainda</li>
+          </ul>
+        </nav>
+
+        <div class="rodape-lateral">
+          <button id="abrir-configuracoes" class="botao-configuracoes">
+            ⚙️ Configurações
+          </button>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="conteudo-principal">
+        <header class="cabecalho">
+          <!-- BOTÃO DE MENU (APARECE EM MOBILE) -->
+          <button id="toggle-menu" class="botao-menu" aria-label="Abrir menu">
+            ☰
+          </button>
+
+          <!-- BARRA DE PESQUISA + BOTÃO -->
+          <div id="search-container">
+            <input
+              type="text"
+              id="search-endereco"
+              class="barra-pesquisa"
+              placeholder="Pesquisar endereço..."
+            />
+            <button id="btn-search-endereco">🔍</button>
+          </div>
+
+          <!-- SWITCH TEMA -->
+          <label class="switch">
+            <span class="sun">☀️</span>
+            <input type="checkbox" id="toggle-tema" />
+            <span class="slider"></span>
+            <span class="moon">🌙</span>
+          </label>
+        </header>
+
+        <section id="mapa" class="mapa" aria-label="Mapa"></section>
+      </main>
+    </div>
+
+    <!-- MODAL CONFIGURAÇÕES -->
+    <div
+      id="janela-configuracoes"
+      class="janela-configuracoes"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="conteudo-configuracoes" role="document">
+        <header class="cabecalho-configuracoes">
+          <h2>⚙️ Configurações</h2>
+          <button
+            id="fechar-configuracoes"
+            class="botao-fechar"
+            aria-label="Fechar"
+          >
+            ✖
+          </button>
+        </header>
+
+        <div class="secao-planos">
+          <h3>Planos disponíveis</h3>
+          <br />
+          <div class="cards-planos">
+            <div class="planoCard" data-plano="Free">
+              <h4 class="planoCardH4">Free</h4>
+              <strong>R$0 / mês</strong>
+              <p>✔ Até 10 marcadores<br />✔ Recursos básicos</p>
+              <br />
+              <button class="botao-plano" data-plano="Free">
+                <a href="#" style="text-decoration: none; color: white"
+                  >Selecionar</a
+                >
+              </button>
+            </div>
+            <br />
+            <div class="planoCard destaque" data-plano="Standard">
+              <h4 class="planoCardH4">Standard</h4>
+              <strong>R$10,90 / mês</strong>
+              <p>
+                ✔ Marcadores ilimitados<br />✔ Marcação pública<br />✔
+                Notificações por email
+              </p>
+              <br />
+              <button class="botao-plano" data-plano="Standard">
+                <a href="#" style="text-decoration: none; color: white"
+                  >Selecionar</a
+                >
+              </button>
+            </div>
+            <br />
+            <div class="planoCard" data-plano="Platinum">
+              <h4 class="planoCardH4">Platinum</h4>
+              <strong>R$19,90 / mês</strong>
+              <p>
+                ✔ Tudo do Standard<br />✔ Suporte prioritário<br />✔ Recursos
+                premium
+              </p>
+              <br />
+              <button class="botao-plano" data-plano="Platinum">
+                <a href="#" style="text-decoration: none; color: white"
+                  >Selecionar</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="lista-opcoes">
+          <h3>🔒 Segurança e Privacidade</h3>
+          <br />
+          <ul class="liConfig">
+            <li>
+              <a href="#" style="text-decoration: none; color: white"
+                >Trocar senha</a
+              >
+            </li>
+            <li>
+              <a href="#" style="text-decoration: none; color: white"
+                >Autenticação em duas etapas</a
+              >
+            </li>
+            <li>
+              <a href="#" style="text-decoration: none; color: white"
+                >Gerenciar dispositivos conectados</a
+              >
+            </li>
+            <li>
+              <a href="#" style="text-decoration: none; color: white"
+                >Permissões de localização</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL MARCADOR -->
+    <div
+      id="janela-marcador"
+      class="janela-marcador"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="conteudo-marcador" role="document">
+        <h3>Novo Marcador</h3>
+        <label for="titulo">Título:</label>
+        <input id="titulo" type="text" placeholder="Digite o título" />
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" placeholder="Escreva algo..."></textarea>
+        <label for="anexo">Anexos:</label>
+        <input
+          id="anexo"
+          type="file"
+          accept="image/*,video/*,audio/*"
+          multiple
+        />
+
+        <div style="margin-top: 8px">
+          <label>
+            <input type="checkbox" id="publico" checked />
+            Público
+          </label>
+        </div>
+
+        <div id="preview-anexos" class="thumbs"></div>
+
+        <div class="botoes">
+          <button id="salvar-marcador">Salvar</button>
+          <button id="cancelar-marcador">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEWER FULLSCREEN -->
+    <div id="viewer" class="viewer" aria-hidden="true">
+      <button
+        id="viewer-close"
+        class="viewer-close"
+        aria-label="Fechar visualização"
+      >
+        ✖
+      </button>
+      <button id="viewer-prev" class="viewer-nav" aria-label="Anterior">
+        ◀
+      </button>
+      <div
+        id="viewer-content"
+        class="viewer-content"
+        role="region"
+        aria-live="polite"
+      ></div>
+      <button id="viewer-next" class="viewer-nav" aria-label="Próximo">
+        ▶
+      </button>
+    </div>
+
+    <!-- JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scriptTela.js"></script>
+  </body>
+</html>

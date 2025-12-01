@@ -37,8 +37,8 @@ body {
     flex-direction: column;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+  scroll-behavior: smooth;
 }
 
 /* HEADER */
@@ -58,7 +58,7 @@ header {
 .navbar {
     background-color: var(--nav);
     width: 60%;
-    height: fit-content;
+    height: 50px;
     max-width: 1200px;
     border-radius: 20px;
     box-shadow: 5px 5px 4px 4px rgba(0,0,0,0.1);
@@ -79,10 +79,11 @@ header {
 .logo-navbar h1{
     line-height: 30px;
     color: var(--laranja);
+    font-size: 22px;
 }
 
 .logo-navbar img{
-    width: 96px;
+    width: 60px;
 }
 
 .div-navbar-mobile {
@@ -179,7 +180,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(50, 50, 50, 0.7), rgba(255,255,255,0.5)),
+    background: linear-gradient(rgba(50, 50, 50, 0.7), var(--nav)),
     url("img/mapaFundo.jpg") center/cover no-repeat;
     backdrop-filter: brightness(10%);
     width: 100%;
@@ -339,7 +340,7 @@ h1{
 
 .equipe-conteudo {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     width: 90%;
     height: 90%;
@@ -512,6 +513,10 @@ h1{
 .call-to-action button:hover {
   background-color: #d5943c;
   color: var(--letraE);
+}
+.call-to-action a {
+  text-decoration: none;
+  color: var(--letraE)
 }
 
 .bloco {
@@ -789,8 +794,21 @@ footer {
 }
 
 /* HOME */
-.body_home {
-    background-color: var(--fundo);
+.body_home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97.5vw;
+    height: 90vh;
+    z-index: -1;
+
+    background: 
+        linear-gradient(rgba(50, 50, 50, 0.7), rgba(255,255,255,0.5)),
+        url("img/mapaFundo.jpg") center/cover no-repeat;
+
+    filter: blur(4px); /* ajuste o valor do blur */
+    transform: scale(1.05); /* evita bordas aparecendo após blur */
 }
 
 .main-home {
@@ -812,7 +830,7 @@ footer {
 }
 
 .desc-container h2 {
-    color: #333;
+    color: var(--letraE);
     font-weight: 500; 
     font-size: 32px;
     line-height: 1.4;
@@ -820,7 +838,7 @@ footer {
 }
 
 .desc-container p {
-    color: #333;
+    color: var(--letraE);
     font-weight: 400;
     font-size: 20px; 
     line-height: 1.6;
@@ -829,15 +847,16 @@ footer {
 
 .mapa-conteudo{
     position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    max-height: 700px;
-    margin: 60px;
+    margin: none;
     margin-top: none;
+    margin-right: 10%;
 }
 
 #mapa-imagem {
     opacity: 0.7;
+    height: 650px;
+    border-radius: 16px;
+    filter: brightness(85%);
 }
 
 .mapa-btn {
@@ -948,6 +967,10 @@ footer {
   .navbar {
     width: auto;
   }
+  .switch {
+    margin-top: 0%;
+    left: 1%;
+}
 }
 
 
@@ -999,6 +1022,10 @@ footer {
   .mapa-conteudo {
     width: 85%;
   }
+  .switch {
+    margin-top: 0%;
+    left: 3%;
+}
 }
 
 @media (max-width: 768px) {
@@ -1028,15 +1055,15 @@ footer {
   }
 
      .switch {
-        margin-top: 1%;
-        left: 12%;
+        margin-top: 0%;
+        left: 3%;
 }
 }
 
 /* celulares */
 @media (max-width: 637px) {
     .navbar {
-        width: 90%;
+        width: 85%;
         border-radius: 20px;
         padding: 10px;
     }
@@ -1071,9 +1098,21 @@ footer {
     left: 85vw;  
     }
     .switch {
-        margin-top: 1%;
-        left: 10%;
+      margin-top: 10%;
+      left: 1%;
     }
+      .navbar-sobre{
+      width: 78%;
+      padding: 0;
+      margin-left: 10%;
+  }
+  .btn-navbar-sobre{
+      width: 20px;
+      padding: 10px;
+      text-align: center;
+      padding: 0px 2px;
+      margin-left: 0px;
+  }  
 }
 
 @media (max-width: 569px) {
@@ -1082,36 +1121,78 @@ footer {
   }
 
   .navbar {
-    width: 70%;
+    width: 60%;
     padding: 0;
   }
-}
+  .navbar-sobre{
+      width: 85%;
+      padding: 0;
+      margin-left: 10%;
+  }
+  .btn-navbar-sobre{
+      width: 20px;
+      padding: 10px;
+      text-align: center;
+      padding: 0px 2px;
+      margin-left: 0px;
+  }  
+  
+  .switch {
+      margin-top: 10%;
+      left: 0%;
+      margin-left: 0px;
+  }
+
+
 
 @media (max-width: 378px) {
     .btn {
-        width: 50;
+        width: 50px;
         padding: 10px;
         text-align: center;
         padding: 0px 2px;
         margin-left: 0px;
     }
 
+    .btn-sobre{
+      font-size: 12px;
+    }
+
+    .btn-navbar-sobre{
+        width: 20px;
+        padding: 10px;
+        text-align: center;
+        padding: 0px 2px;
+        margin-left: 0px;
+        font-size: 20px;
+    }
+
+    .map{
+      font-size: 26px;
+
+    }
+
     .bloco{
-        width: 113%;
+      width: 113%;
     }
     .box-sobre {
-        width: 80%;
+      width: 80%;
     }
     .subir {         
-    left: 85vw;  
-    height: 40px;
-    width: 40px;
+      left: 85vw;  
+      height: 40px;
+      width: 40px;
     }
     .switch {
-        margin-top: 1%;
-        left: 6%;
+        margin-top: 15%;
+        left: 1%;
+        margin-left: 0px;
     }
+
+    .navbar-sobre{
+        width: 75%;
+        padding: 0;
+        margin-left: 10%;
+    }
+  }
 }
-
-
-

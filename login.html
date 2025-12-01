@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapeando Histórias | Login</title>
+    <link rel="stylesheet" href="styleLogin.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./img/icon_logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <main class="container">
+      <form id="formLogin">
+        <h1>Login</h1>
+
+        <div class="input-box">
+          <input placeholder="Email" type="email" id="input-email"/>
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input placeholder="Senha" type="password" id="input-senha" />
+          <i class="bx bxs-lock-alt"></i>
+          <div class="remember-forgot">
+            <label>
+              <a href="#">Esqueci a senha</a>
+            </label>
+        <div class="register-link">
+          <p>Não tem uma conta?<a href="./register.html">Cadastre-se</a></p>
+        </div>
+        </div>
+          <button type="submit" class="login" href="./indexTela.html">Entrar</button>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="scriptLogin.js"></script>
+</html>

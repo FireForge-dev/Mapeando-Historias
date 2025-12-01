@@ -1,0 +1,707 @@
+/* =========================================
+   VARIÁVEIS DE TEMA
+========================================= */
+:root {
+  --fundo-claro: #F4E9D8;
+  --fundo-escuro: #5D4F46;
+  --nav-claro: #7A5E42;
+  --nav-escuro: #3A302B;
+  --fundo-bloco-claro: #E9D5B5;
+  --fundo-bloco-escuro: #2C2521;
+  --laranja: #E8A951;
+  --verde: #4CAF50;
+  --azul: #2196F3;
+  --letras-claras: #F6EFE1;
+  --letras-escuras: #2C241C;
+  --destaque: #E8A951;
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   RESET
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--fundo-claro);
+  color: var(--letras-escuras);
+  overflow: hidden; /* seu original usava hidden */
+}
+
+/* =========================================
+   CONTAINER / LAYOUT
+========================================= */
+.container {
+  display: flex;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* =========================================
+   BARRA LATERAL
+========================================= */
+.barra-lateral {
+  width: 280px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 16px;
+  background: linear-gradient(180deg, var(--fundo-bloco-claro), #f2e8cf);
+  box-shadow: 4px 0 20px var(--shadow);
+  transition: all 0.3s;
+}
+
+/* ---------- cabeçalho lateral ---------- */
+.cabecalho-lateral {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.foto-usuario {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-image: url('fotos/rafaFoto.jpg');
+  background-repeat: no-repeat;
+  background-size: 80px;
+  margin: 0 auto 12px;
+  border: 3px solid #fff;
+}
+
+.nome-usuario {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.mensagem-boasvindas {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.plano-usuario {
+  background: var(--fundo-bloco-claro);
+  color: #000; /* texto principal sempre preto */
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.plano-usuario span {
+  color: var(--botao); /* deixa o nome do plano em laranja */
+  font-weight: bold;
+}
+
+#plano-atual {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--laranja);
+}
+
+/* ---------- menus (lista) ---------- */
+.menu-lateral {
+  flex: 1;
+  overflow: auto;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-lateral h4 {
+  font-size: 0.95rem;
+  color: var(--nav-claro);
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+.lista-marcadores,
+.lista-favoritos {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-marcadores li,
+.lista-favoritos li {
+  background: #fff8eb;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 12px var(--shadow);
+  transition: 0.2s;
+  font-size: 0.95rem;
+}
+
+.lista-marcadores li:hover,
+.lista-favoritos li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--shadow);
+}
+
+.lista-favoritos li {
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.lista-marcadores li button,
+.lista-favoritos li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 6px;
+  transition: 0.2s;
+}
+
+.lista-marcadores li button:hover,
+.lista-favoritos li button:hover {
+  transform: scale(1.2);
+}
+
+/* ---------- rodapé lateral ---------- */
+.rodape-lateral {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.botao-configuracoes {
+  background: var(--laranja);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: 0.3s;
+  width: 100%;
+  text-align: center;
+}
+
+.botao-configuracoes:hover {
+  background: #f6b96b;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+.conteudo-principal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---------- cabeçalho ---------- */
+.cabecalho {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 1000; /* Acima do mapa */
+  display: flex;
+  justify-content: center; /* Centraliza a busca */
+  align-items: flex-start;
+  pointer-events: none; /* Permite clicar no mapa nas áreas vazias */
+}
+
+/* ---------- busca ---------- */
+#search-container {
+ pointer-events: auto; /* Reativa cliques */
+  background-color: var(--fundo-overlay);
+  border: 1px solid var(--borda-divisoria);
+  border-radius: 30px;
+  padding: 5px 15px;
+  width: 50%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-suave);
+}
+
+.barra-pesquisa {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+#btn-search-endereco {
+  background: transparent;
+  font-size: 1.2rem;
+  padding: 5px;
+  order: -1;
+}
+
+#btn-search-endereco:hover {
+  background: transparent;
+  transform: scale(1.1)
+}
+
+/* ==============================
+   SWITCH DE TEMA
+============================== */
+.switch {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--fundo-bloco-escuro);
+  border-radius: 34px;
+  width: 70px;
+  height: 30px;
+  padding: 0 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+}
+
+/* input invisível mas funcional */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* bolinha fixa (cor única) */
+.slider {
+  position: absolute;
+  top: 3px;
+  right: 3px; /* começa do lado direito (sol) */
+  width: 24px;
+  height: 24px;
+  background: var(--laranja);
+  border-radius: 50%;
+  transition: 0.4s ease;
+  z-index: 2;
+}
+
+/* movimento da bolinha (vai pra esquerda quando ativado) */
+.switch input:checked + .slider {
+  transform: translateX(-38px);
+}
+
+/* ícones de sol e lua */
+.sun,
+.moon {
+  font-size: 1rem;
+  z-index: 1;
+  user-select: none;
+  color: var(--letras-claras);
+  transition: opacity 0.3s ease;
+}
+
+/* visibilidade dos ícones */
+.switch input:checked ~ .sun {
+  opacity: 0.3;
+}
+.switch input:not(:checked) ~ .moon {
+  opacity: 0.3;
+}
+
+
+
+/* =========================================
+   MAPA
+========================================= */
+#mapa {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* =========================================
+   MODAIS (janela-marcador, configurações, viewer)
+========================================= */
+.janela-marcador,
+.janela-configuracoes,
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1500;
+  padding: 10px;
+}
+
+/* ---------- conteúdo de modais ---------- */
+.conteudo-marcador,
+.conteudo-configuracoes {
+  background: var(--fundo-claro);
+  color: var(--letras-escuras);
+  border-radius: 16px;
+  width: 95%;
+  max-width: 450px;
+  max-height: 85vh;
+  overflow: auto;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================================
+   ABA DE CONFIGURAÇÕES (conteúdo)
+========================================= */
+.conteudo-configuracoes {
+  gap: 16px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.conteudo-configuracoes h2 {
+  color: var(--nav-claro);
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.conteudo-configuracoes label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.conteudo-configuracoes .switch {
+  display: inline-block;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.conteudo-configuracoes .botao-fechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #ff5c5c;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.conteudo-configuracoes .botao-fechar:hover {
+  background: #ff7b7b;
+}
+
+.conteudo-configuracoes .botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.conteudo-configuracoes .botoes button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background: var(--laranja);
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.conteudo-configuracoes .botoes button:hover {
+  background: #f6b96b;
+}
+
+/* =========================================
+   POPUP THUMBS
+========================================= */
+.popup-card .thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.popup-card .thumb {
+  max-width: 120px;
+  max-height: 100px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.popup-card video.thumb {
+  max-width: 120px;
+  max-height: 100px;
+}
+
+.popup-card audio {
+  max-width: 120px;
+}
+
+/* =========================================
+   VIEWER (modal visualização)
+========================================= */
+.viewer {
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+}
+
+.viewer-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.viewer-content img,
+.viewer-content video,
+.viewer-content audio {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+}
+
+/* ---------- botões do viewer ---------- */
+.viewer button {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+#viewer-close { top: 10px; right: 10px; }
+#viewer-prev { left: 10px; top: 50%; transform: translateY(-50%); }
+#viewer-next { right: 10px; top: 50%; transform: translateY(-50%); }
+
+.viewer button:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+@media (max-width: 900px) {
+  .barra-lateral {
+    width: 220px;
+    padding: 16px;
+  }
+  #mapa {
+    left: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .barra-lateral {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px var(--shadow);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 12px 8px;
+  }
+
+  .conteudo-principal {
+    flex: 1;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #mapa {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .menu-lateral {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .lista-marcadores li,
+  .lista-favoritos li {
+    flex: 1 1 45%;
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================
+   PREVIEW DE ANEXOS
+========================================= */
+#preview-anexos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#preview-anexos .preview-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff8eb;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+#preview-anexos .preview-item img,
+#preview-anexos .preview-item video,
+#preview-anexos .preview-item audio {
+  max-width: 120px;
+  max-height: 100px;
+  border-radius: 6px;
+}
+
+#preview-anexos .remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #ff5c5c;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* =========================================
+   TEMA ESCURO (classe .tema-escuro)
+========================================= */
+body.tema-escuro {
+  background: var(--fundo-escuro);
+  color: var(--letras-claras);
+}
+
+body.tema-escuro .barra-lateral {
+  background: linear-gradient(180deg, var(--fundo-bloco-escuro), #2b231f);
+  color: var(--letras-claras);
+}
+
+body.tema-escuro .conteudo-configuracoes,
+body.tema-escuro .conteudo-marcador {
+  background: var(--fundo-bloco-escuro);
+  color: var(--letras-claras);
+}
+
+body.tema-escuro .lista-marcadores li,
+body.tema-escuro .lista-favoritos li {
+  background: #3a332d;
+  color: var(--letras-claras);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.28);
+}
+
+body.tema-escuro input,
+body.tema-escuro textarea,
+body.tema-escuro select {
+  background: #4a3f37;
+  color: var(--letras-claras);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+body.tema-escuro .botao-configuracoes {
+  background: var(--laranja);
+  color: #000;
+}
+/* ==============================
+   COR FIXA DO PLANO ATUAL
+============================== */
+#plano-atual {
+  color: #000 !important; /* sempre preto */
+}
+
+
+/*  secao-planos  */
+
+.planoCard{
+    border: 1px solid black;
+    text-align: center;
+    background-color: var(--nav-claro);
+    border-radius: 12px;
+}
+
+.planoCardH4{
+  margin-top: 5px;
+  color: var(--laranja);
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.botao-plano{
+  margin-bottom: 20px;
+  border: none;
+  color: white;
+  background-color: #463026;
+  border-radius: 10px;
+  height: 20px;
+  width: 80px;
+}
+
+.liConfig{
+  padding-left: 10px;
+}
+
+.liConfig li{
+  margin-bottom: 10px;
+  border: 1px solid black;
+  color: white;
+  background-color: var(--nav-claro);
+  border-radius: 10px;
+  height: 30px;
+  margin-left: 5px;
+  align-content: center;
+  padding-left: 10px;
+}
