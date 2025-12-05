@@ -41,8 +41,8 @@ body {
 
 .login-button {
     position: absolute;
-height: 440px;
-right: 520px;
+top: 280px;
+right: 460px;
 z-index: 1;
 }
 
